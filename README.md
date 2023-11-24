@@ -18,11 +18,12 @@
 As this project is a silly side project to recreate a funny hoax, of course I want to make this thing a real "YouTube Client". Filtered with priority from **most-wanted** to **least-wanted**:
 
 1. Functional search, search result, and playback functions ✅
-2. Single page 💨
-3. Working channel picker (with single page feature) 😐
-4. Working changelog 💤
-5. Actual navbar instead of decoration 💤
-6. Google login with OAuth2 (for video history). 💤
+2. Single page ✅
+3. Working channel picker (with single page feature) ✅ (didn't expect to finish this one LOL)
+4. Fill up the 2nd channel picker 🧐
+5. Working changelog 💨
+6. Actual navbar instead of decoration 💤
+7. Google login with OAuth2 (for video history). 💤
 
 **Subject to changes**
 
