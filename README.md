@@ -11,7 +11,7 @@
 * YouTube 😄
 
 ## Screenshot
-![App Screenshot](https://media.discordapp.net/attachments/885704965820145717/1176867066305855548/image.png)
+![App Screenshot](https://media.discordapp.net/attachments/1036212173438988328/1177627863713857576/image.png)
 *How cool is that?*
 
 ## Bucket-list
