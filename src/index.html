@@ -14,7 +14,9 @@
 
 <body class="overflow-hidden">
     <header class="flex flex-auto ml-9 mt-[2rem] static">
-        <img class="w-[14rem] h-[5rem] mt-1" src="https://media.discordapp.net/attachments/1030086749910749224/1175257907886051339/GOOGLE_TElevision.png" alt="Google Television BETA">
+        <a href="*">
+                    <img class="w-[14rem] h-[5rem] mt-1" src="https://media.discordapp.net/attachments/1030086749910749224/1175257907886051339/GOOGLE_TElevision.png" alt="Google Television BETA">
+        </a>
         <div>
             <div>
                 <div class="flex flex-row">
@@ -71,45 +73,46 @@
     <div class="grid relative grid-cols-3 grid-rows-3 grid-flow-row mt-5 ml-10  pl-[4rem]" >
         <div>
             <div class="outline outline-1 outline-gray-300 max-w-[5rem] max-h-[155px]"> <!--first picker-->
-                <button onclick="loadYoutube()">
-                    <img  class="scale-75 grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174344762896171109/502px-Logo_of_YouTube_282015-201729.png" alt="youtube tv">
+                <button class="active:bg-blue-200" onclick="loadYoutube()">
+                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174344762896171109/502px-Logo_of_YouTube_282015-201729.png" alt="youtube">
                 </button>
-                <button onclick="loadVTV()">
-                    <img  class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174345803893067826/dasdaxcgrrxz213.png" alt="not available">
+                <button class="active:bg-blue-200" onclick="loadVTV()">
+                    <img  class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174185833956384823/1200px-Vietnam_Television_logo_from_2013.png" alt="vtv">
                 </button>
-                <button onclick="loadVTC()">
-                    <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174345803893067826/dasdaxcgrrxz213.png" alt="not available">
+                <button class="active:bg-blue-200" onclick="loadVTC()">
+                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1177621314522071121/1200px-VTC_official_logo.png" alt="vtc">
                 </button>
 
             </div>
             <div class="outline outline-1 outline-gray-300 max-w-[5rem] overflow-scroll max-h-[13rem] mt-4" > <!--second picker-->
-                <a>
+                <button onclick="loadHolder()">
                     <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174345803893067826/dasdaxcgrrxz213.png" alt="not available">
-                </a>
-                <a>
+                </button>
+                <button onclick="loadHolder()">
                     <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174345803893067826/dasdaxcgrrxz213.png" alt="not available">
-                </a>
-                <a>
+                </button>
+                <button onclick="loadHolder()">
                     <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174345803893067826/dasdaxcgrrxz213.png" alt="not available">
-                </a>
-                <a>
+                </button>
+                <button onclick="loadHolder()">
                     <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174345803893067826/dasdaxcgrrxz213.png" alt="not available">
-                </a>
-                <a>
+                </button>
+                <button onclick="loadHolder()">
                     <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174345803893067826/dasdaxcgrrxz213.png" alt="not available">
-                </a>
+                </button>
             </div>
         </div>
         <div  class="w-[14rem] absolute left-[160px] h-12 max-w-xl"> <!--video's thumbnail-->
             <div id="thumbnailhere">
-                <img src="https://media.discordapp.net/attachments/1036212173438988328/1059378437938229308/017a77ed299817cb80e5960d442f170a8fb3ef0c18.jpg" alt="anya placeholder">
+                <img src="https://media.discordapp.net/attachments/1030086749910749224/1177598751586656366/frontpage.png" alt="thumbnail">
             </div>
         </div>
-        <div class="absolute left-[10rem] mt-[8rem] pr-6 overflow-scroll max-h-[15rem]">
+        <div class="absolute left-[10rem] mt-[8rem] pr-6 ">
             <div class="list-none ml-3 max-w-[12rem]">
-                <li id="list1">Search results:
+                <li id="list1">
                     <div class="relative left-2">
-                        <ul id="searchResultsList"> 
+                        <div id="searchtext">Recommendation:</div>
+                        <ul id="searchResultsList" class="overflow-scroll max-h-[15rem]"> 
                             
                             
                         </ul>
@@ -119,7 +122,7 @@
         </div>
         
         <div class="absolute left-[25rem]" id="videoplayback"> <!--video-->
-            <iframe  width="640" height="360" src="https://www.youtube.com/embed/tEvXVJHTQAk?si=wZlEkSaIdYtHEmQm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  width="640" height="360" src="https://www.youtube.com/embed/J9SK_M_nVWA?si=9u3ezTlXu80jpJKh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
     </div>
@@ -136,5 +139,10 @@
             </div>
         </div>
     </footer>
+
+
+    <script>
+        search();
+    </script>
 </body>
 </html>
