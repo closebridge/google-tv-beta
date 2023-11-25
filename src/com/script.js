@@ -1,9 +1,9 @@
 const apikey = 'AIzaSyCyWqJthAKUW8HtdWLKVHu1U-9K5DUi0U4'; // ALWAYS CHECK APIKEY BEFORE SEND TO PRODUCTION!!!!!!!!!! PAST/FUTURE SELF!
 const cache = {};
+const maxResults = '35';
 
 
 function search() {
-    const maxResults = 35;
     const searchInput = document.getElementById('searchbox').value;
     const searchThis = encodeURIComponent(searchInput);
     const cacheKey = `search_${searchThis}`;
@@ -14,7 +14,7 @@ function search() {
     }
 
     searchResultsList.innerHTML = '';
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&chart=mostPopular&regionCode=VN&part=snippet&type=video&q=${searchThis}&maxResults=${maxResults}`)
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&chart=mostPopular&regionCode=US&part=snippet&type=video&q=${searchThis}&maxResults=${maxResults}`)
         .then(response => response.json())
         .then(data => {
             // Cache
@@ -36,6 +36,13 @@ function displaySearchResults(results) {
         listItem.textContent = videoTitle;
         list1.appendChild(listItem);
     });
+}
+
+function enterDown(event) {
+    if (event.key === 'Enter') {
+            event.preventDefault();
+            search();
+    }
 }
 
 
@@ -74,8 +81,8 @@ function playVideo(videoId) {
 
     // iframe lies here
     const iframe = document.createElement('iframe');
-    iframe.width = '640'; //Size W 
-    iframe.height = '360'; //Size H
+    iframe.width = '660'; //Size W 
+    iframe.height = '380'; //Size H
     iframe.src = `https://www.youtube.com/embed/${videoId}`;
     iframe.allowFullscreen = true;
     videoplaybackDiv.appendChild(iframe);
@@ -164,7 +171,6 @@ function loadVTV() {
 function loadVTC() {
     const vtcImagey = 'https://media.discordapp.net/attachments/1030086749910749224/1177622005344915466/vtc.png';
     const vtcID = 'UCL9-pEHNBs3N4r2bMoXdLJA';
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${vtcID}&type=video&maxResults=50&key=${apikey}`;
     const maxResults = '35';
     const mainui = {
         searchResultsList: document.getElementById('searchResultsList'),
@@ -211,4 +217,159 @@ function loadHolder() {
     mainui.thumbnailhere.innerHTML='';
     youtubeElement: document.createElement('img'),
     mainui.searchtext.textContent= 'Not available/Chưa phát triển 🥹😥';
+}
+
+//Second picker codebase (pending)
+const stillWoozyId = 'UCFvpiAtMwvCTCZuEM8Ua8Uw';
+const joyrydeId = 'UCLddKRSsA2eNfwnNVz6Onrg';
+    //habstrakt is not here
+const nicklengId = 'UCoouBWARCpal3ctBF87Pqsg';
+const antohaMCId = 'UC8azRZKZlDI5KVX2Un6HFmQ';
+
+const theStillWoozy = './com/photos/StillWoozy.png';
+const theHabstrakt = './com/photos/habstrakt.png';
+const theJOYRYDE = './com/photos/JOYRYDE.png';
+const theNickLeng = './com/photos/nickleng.png';
+const theAntohaMC = './com/photos/antohamc.png';
+
+    
+function stillWoozy() {
+    
+    const mainui = {
+        searchResultsList: document.getElementById('searchResultsList'),
+        videoplayback: document.getElementById('videoplayback'),
+        thumbnailhere: document.getElementById('thumbnailhere'),
+        searchtext: document.getElementById('searchtext'),
+        theElement: document.createElement('img'),
+    }   
+
+    mainui.theElement.src = theStillWoozy;
+    mainui.searchResultsList.innerHTML='';
+    mainui.videoplayback.innerHTML='';
+    mainui.thumbnailhere.innerHTML='';
+    mainui.thumbnailhere.appendChild(mainui.theElement);
+    mainui.searchtext.textContent= 'Still Woozy';
+
+    const cacheKey = `search_${stillWoozyId}`;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&channelId=${stillWoozyId}`)
+    .then(response => response.json())
+    .then(data => {
+        // Cache
+        cache[cacheKey] = data.items;
+        displaySearchResults(data.items);
+    })
+    .catch(error => console.error('Error fetching data:', error));    
+}
+
+function joyryde() {
+    const mainui = {
+        searchResultsList: document.getElementById('searchResultsList'),
+        videoplayback: document.getElementById('videoplayback'),
+        thumbnailhere: document.getElementById('thumbnailhere'),
+        searchtext: document.getElementById('searchtext'),
+        theElement: document.createElement('img'),
+    }   
+
+    mainui.theElement.src = theJOYRYDE;
+    mainui.searchResultsList.innerHTML='';
+    mainui.videoplayback.innerHTML='';
+    mainui.thumbnailhere.innerHTML='';
+    mainui.thumbnailhere.appendChild(mainui.theElement);
+    mainui.searchtext.textContent= 'JOYRYDE';
+
+    const cacheKey = `search_${stillWoozyId}`;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&channelId=${joyrydeId}`)
+    .then(response => response.json())
+    .then(data => {
+        // Cache
+        cache[cacheKey] = data.items;
+        displaySearchResults(data.items);
+    })
+    .catch(error => console.error('Error fetching data:', error));   
+}
+
+function habstrakt() {
+    const mainui = {
+        searchResultsList: document.getElementById('searchResultsList'),
+        videoplayback: document.getElementById('videoplayback'),
+        thumbnailhere: document.getElementById('thumbnailhere'),
+        searchtext: document.getElementById('searchtext'),
+        theElement: document.createElement('img'),
+    }   
+
+    mainui.theElement.src = theHabstrakt;
+    mainui.searchResultsList.innerHTML='';
+    mainui.videoplayback.innerHTML='';
+    mainui.thumbnailhere.innerHTML='';
+    mainui.thumbnailhere.appendChild(mainui.theElement);
+    mainui.searchtext.textContent= 'Habstrakt';
+
+    const cacheKey = `search_${stillWoozyId}`;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&q='habstrakt'`)
+    .then(response => response.json())
+    .then(data => {
+        // Cache
+        cache[cacheKey] = data.items;
+        displaySearchResults(data.items);
+    })
+    .catch(error => console.error('Error fetching data:', error));   
+}
+
+function nickleng() {
+    const mainui = {
+        searchResultsList: document.getElementById('searchResultsList'),
+        videoplayback: document.getElementById('videoplayback'),
+        thumbnailhere: document.getElementById('thumbnailhere'),
+        searchtext: document.getElementById('searchtext'),
+        theElement: document.createElement('img'),
+    }   
+
+    mainui.theElement.src = theNickLeng;
+    mainui.searchResultsList.innerHTML='';
+    mainui.videoplayback.innerHTML='';
+    mainui.thumbnailhere.innerHTML='';
+    mainui.thumbnailhere.appendChild(mainui.theElement);
+    mainui.searchtext.textContent= 'Nick Leng';
+
+    const cacheKey = `search_${stillWoozyId}`;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&channelId=${nicklengId}`)
+    .then(response => response.json())
+    .then(data => {
+        // Cache
+        cache[cacheKey] = data.items;
+        displaySearchResults(data.items);
+    })
+    .catch(error => console.error('Error fetching data:', error));   
+}
+
+function antohamc() {
+    const mainui = {
+        searchResultsList: document.getElementById('searchResultsList'),
+        videoplayback: document.getElementById('videoplayback'),
+        thumbnailhere: document.getElementById('thumbnailhere'),
+        searchtext: document.getElementById('searchtext'),
+        theElement: document.createElement('img'),
+    }   
+
+    mainui.theElement.src = theAntohaMC;
+    mainui.searchResultsList.innerHTML='';
+    mainui.videoplayback.innerHTML='';
+    mainui.thumbnailhere.innerHTML='';
+    mainui.thumbnailhere.appendChild(mainui.theElement);
+    mainui.searchtext.textContent= 'Antoha MC';
+
+    const cacheKey = `search_${stillWoozyId}`;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&channelId=${antohaMCId}`)
+    .then(response => response.json())
+    .then(data => {
+        // Cache
+        cache[cacheKey] = data.items;
+        displaySearchResults(data.items);
+    })
+    .catch(error => console.error('Error fetching data:', error));   
 }
