@@ -1,26 +1,28 @@
-const apikey = 'AIzaSyDT_Lp_UjSQd6NVDQ55KWBZBD7VR2DPu78'; // ALWAYS CHECK APIKEY BEFORE SEND TO PRODUCTION!!!!!!!!!! PAST/FUTURE SELF!
+const apikey = 'AIzaSyCyWqJthAKUW8HtdWLKVHu1U-9K5DUi0U4'; // ALWAYS CHECK APIKEY BEFORE SEND TO PRODUCTION!!!!!!!!!! PAST/FUTURE SELF!
+const cache = {};
 
 
 function search() {
     const maxResults = 35;
     const searchInput = document.getElementById('searchbox').value;
     const searchThis = encodeURIComponent(searchInput);
+    const cacheKey = `search_${searchThis}`;
+
+    if (cache[cacheKey]) {
+        displaySearchResults(cache[cacheKey]);
+        return;
+    }
+
     searchResultsList.innerHTML = '';
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&chart=mostPopular&regionCode=VN&part=snippet&type=video&q=${searchThis}&maxResults=${maxResults}`) //youtube stop being a bitch for removing rel=0, grrrr...
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&chart=mostPopular&regionCode=VN&part=snippet&type=video&q=${searchThis}&maxResults=${maxResults}`)
         .then(response => response.json())
-        .then(data => displaySearchResults(data.items))
+        .then(data => {
+            // Cache
+            cache[cacheKey] = data.items;
+            displaySearchResults(data.items);
+        })
         .catch(error => console.error('Error fetching data:', error));
 }
-
-function enterDown(event) {
-    if (event.key === 'Enter') {
-            event.preventDefault();
-            search();
-    }
-}
-
-
-
 
 function displaySearchResults(results) {
     const list1 = document.getElementById('list1');
@@ -40,26 +42,30 @@ function displaySearchResults(results) {
 function displaySearchResults(results) {
     const searchResultsList = document.getElementById('searchResultsList');
 
-    results.forEach(video => {
-        const videoTitle = video.snippet.title;
-        const videoId = video.id.videoId;
-        const listItem = document.createElement('li');
+    if (results && Array.isArray(results)) {
+        results.forEach(video => {
+            const videoTitle = video.snippet.title;
+            const videoId = video.id.videoId;
+            const listItem = document.createElement('li');
 
-        //Button (tailwind already in)
-        const titleButton = document.createElement('button');
-        titleButton.textContent = videoTitle;
-        titleButton.className = 'bg-gray-200 text-start text-sm hover:bg-gray-300 active:bg-gray-400 w-auto';
-        titleButton.addEventListener('click', () => playVideo(videoId));
-        
-        //Add components
-        listItem.appendChild(titleButton);
-        searchResultsList.appendChild(listItem);
-    });
+            // Button (tailwind already in)
+            const titleButton = document.createElement('button');
+            titleButton.textContent = videoTitle;
+            titleButton.className = 'bg-gray-200 text-start text-sm hover:bg-gray-300 active:bg-gray-400 w-auto';
+            titleButton.addEventListener('click', () => playVideo(videoId));
+            listItem.appendChild(titleButton);
+            searchResultsList.appendChild(listItem);
+        });
+    } else {
+        console.error('Invalid or undefined results:', results);
+    }
 }
+
 
 function playVideo(videoId) {
     console.log('loading current id:', videoId);
 }
+
 
 
 function playVideo(videoId) {
@@ -138,10 +144,20 @@ function loadVTV() {
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.VTVElement);
     mainui.searchtext.textContent= 'Results from VTV';
-    
+    const cacheKey = `search_${vtvID}`;
+
+    if (cache[cacheKey]) {
+        displaySearchResults(cache[cacheKey]);
+        return;
+    }
+
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&channelId=${vtvID}`) //youtube stop being a bitch for removing rel=0, grrrr...
         .then(response => response.json())
-        .then(data => displaySearchResults(data.items))
+        .then(data => {
+            // Cache
+            cache[cacheKey] = data.items;
+            displaySearchResults(data.items);
+        })
         .catch(error => console.error('Error fetching data:', error));
 }
 
@@ -165,10 +181,20 @@ function loadVTC() {
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.VTCElement);
     mainui.searchtext.textContent= 'Results from VTC';
+    const cacheKey = `search_${vtcID}`;
+
+    if (cache[cacheKey]) {
+        displaySearchResults(cache[cacheKey]);
+        return;
+    }
     
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&channelId=${vtcID}`) //youtube stop being a bitch for removing rel=0, grrrr...
         .then(response => response.json())
-        .then(data => displaySearchResults(data.items))
+        .then(data => {
+            // Cache
+            cache[cacheKey] = data.items;
+            displaySearchResults(data.items);
+        })
         .catch(error => console.error('Error fetching data:', error));
 }
 
