@@ -11,7 +11,8 @@
 * YouTube 😄
 
 ## Screenshot
-![App Screenshot](https://media.discordapp.net/attachments/1036212173438988328/1177627863713857576/image.png)
+![image](https://github.com/closebridge/google-tv-beta/assets/108937010/cc66e3c7-a310-401b-ab5e-2f3a4318c774)
+
 *How cool is that?*
 
 ## Bucket-list
