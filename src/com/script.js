@@ -3,10 +3,13 @@ const cache = {};
 const maxResults = '35';
 
 
+// Uses exclusively for non-specific search
 function search() {
     const searchInput = document.getElementById('searchbox').value;
     const searchThis = encodeURIComponent(searchInput);
     const cacheKey = `search_${searchThis}`;
+    const searchtext = document.getElementById('searchtext');
+
 
     if (cache[cacheKey]) {
         displaySearchResults(cache[cacheKey]);
@@ -22,6 +25,10 @@ function search() {
             displaySearchResults(data.items);
         })
         .catch(error => console.error('Error fetching data:', error));
+
+    searchtext.innerHTML = '';
+    searchtext.textContent = 'Results from YouTube'
+
 }
 
 function displaySearchResults(results) {
@@ -222,7 +229,7 @@ function loadHolder() {
 //Second picker codebase (pending)
 const stillWoozyId = 'UCFvpiAtMwvCTCZuEM8Ua8Uw';
 const joyrydeId = 'UCLddKRSsA2eNfwnNVz6Onrg';
-    //habstrakt is not here
+    //habstrakt is not here (no channel, just reuploads)
 const nicklengId = 'UCoouBWARCpal3ctBF87Pqsg';
 const antohaMCId = 'UC8azRZKZlDI5KVX2Un6HFmQ';
 
@@ -373,3 +380,40 @@ function antohamc() {
     })
     .catch(error => console.error('Error fetching data:', error));   
 }
+
+
+
+
+// GitHub commit/Changelog
+async function changeLogs() {
+    const ghName = 'closebridge';
+    const ghRepo = 'google-tv-beta';
+    const ghURL = `https://api.github.com/repos/${ghName}/${ghRepo}/commits`;
+    const changelogList = document.getElementById('changelogPlace');
+
+    try {
+        const response = await fetch(ghURL);
+        const userData = await response.json();
+        changelogList.classList.toggle = 'scale-75';
+        
+        if (response.ok) {
+            const ghRepoNotes = userData.map(commits => `
+                <div>
+                    <a href="https://github.com/${ghName}/${ghRepo}/commits" target="_blank">
+                        <p  class="text-blue-600">${commits.commit.author.name}</p>
+                    </a>
+                    <p class="text-sm w-64 italic text-green-700">${commits.commit.message}</p>
+                    <p class="italic">@${commits.sha.slice(0, 7)}</p>
+                </div>
+            `).join('');
+            changelogList.innerHTML = '';
+            changelogList.innerHTML = ghRepoNotes;
+        } else {
+            console.warn('Bro, something is off...');
+        }
+    } catch (error) {
+        console.error('Wait what...?', error);
+    }
+    
+}
+
