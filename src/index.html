@@ -1,48 +1,55 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/dist/output.css" rel="stylesheet">
-  <title>Google TV Beta</title>
-  <script src="./com/script.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Google TV Beta</title>
+    <script src="./com/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1030086749910749224/1175268599351496786/work.png">
 
-  <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1030086749910749224/1175268599351496786/work.png">
+<!--Embed section-->
+    <meta name="application-name" content="Google TV Beta Invitation">
+    <meta property="og:title" content="Google TV Beta Invitation">
+    <meta property="og:description" content="YouTube TV Beta is an experimental service that let users stream content from large television provider /s">
+
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1030086749910749224/1175268599351496786/work.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Google TV Beta">
 </head>
-
 
 <body class="overflow-y-hidden">
     <header class="flex flex-auto ml-9 mt-[2rem] static">
         <a href="*">
-                    <img class="w-[14rem] h-[5rem] mt-1" src="https://media.discordapp.net/attachments/1030086749910749224/1175257907886051339/GOOGLE_TElevision.png" alt="Google Television BETA">
+            <img class="w-[14rem] h-[5rem] mt-1" src="https://media.discordapp.net/attachments/1030086749910749224/1175257907886051339/GOOGLE_TElevision.png" alt="Google Television BETA">
         </a>
         <div>
             <div>
-                <div class="flex flex-row">
+                <div class="flex flex-row ml-6">
                     <label for="searchbox"></label>
-                    <input type="text" id="searchbox" onkeydown="enterDown(event)" class="block w-[45rem] rounded-md border-0 py-1.5 pl-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black" placeholder="Search for Program">
+                    <input type="text" id="searchbox" onkeydown="enterDown(event)" class="block w-[40rem] rounded-md border-0 py-1.5 pl-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black" placeholder="Search for Program">
                     <button class="ml-2" id="searchnow" onclick="search()">
-                        <img src="./com/search_FILL0_wght400_GRAD0_opsz24.png" alt="searchbutton">
+                        <p class="bg-gray-100 outline outline-1 outline-gray-300 px-2 pt-1 pb-1">Search</p>
                     </button>
                 </div>
             </div>
-                <div class="flex flex-auto -ml-[8rem] scale-75">
-                    <div id="changelog0" class="pr-8">
+                <div id="changelogPlace" class="-ml-[6rem] flex flex-auto gap-0 scale-75 max-w-[70rem] max-h-[13rem] overflow-scroll overflow-y-hidden">
+                    <div class="pr-8">
                         <a href="*" class="text-blue-600">Hi chat<a>
                         <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
                     </div>
-                    <div id="changelog1" class="pr-8">
+                    <div class="pr-8">
                         <a href="*" class="text-blue-600">Hi chat</a href="*">
                         <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
 
                     </div>
-                    <div id="changelog2" class="pr-8">
+                    <div class="pr-8">
                         <a href="*" class="text-blue-600">Hi chat</a href="*">
                         <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
 
                     </div>
-                    <div id="changelog3" class="pr-8">
+                    <div class="pr-8">
                         <a href="*" class="text-blue-600">Hi chat</a href="*">
                         <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
 
@@ -52,7 +59,7 @@
         </div>
     </header>
 
-    <div class="bg-gray-200 mt-6 ml-9 mr-9" style="border-top-color: #565555; border-top-width: 2px;">
+    <div class="bg-gray-200 relative mx-auto" style="border-top-color: #565555; border-top-width: 2px;">
         <div class="flex flex-auto justify-between text-blue-600">
             <div class="pl-5 flex">
                 <button class="pr-4 font-bold text-black">On Air</button>
@@ -70,7 +77,7 @@
     </div>
 
     <!--main content (my guy really spent 5 hours trying to make this work :kekw:...)-->
-    <div class="grid relative grid-cols-3 grid-rows-3 grid-flow-row mt-5 ml-10  pl-[4rem]" >
+    <div class="grid relative grid-cols-3 grid-rows-3 grid-flow-row mt-5 ml-10 pl-[4rem]" >
         <div>
             <div class="outline outline-1 outline-gray-300 max-w-[5rem] max-h-[150px]"> <!--first picker-->
                 <button class="active:bg-blue-200" onclick="loadYoutube()">
@@ -85,20 +92,20 @@
 
             </div>
             <div class="outline outline-1 outline-gray-300 max-w-[5rem] overflow-scroll max-h-[14rem] mt-4" > <!--second picker-->
-                <button class="active:bg-blue-200" onclick="stillWoozy()">
-                    <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/StillWoozy.png" alt="still woozy">
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="stillWoozy()">
+                    <p class="text-sm">Still Woozy</p>
                 </button>
-                <button class="active:bg-blue-200" onclick="joyryde()">
-                    <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/JOYRYDE.png" alt="joyryde">
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="joyryde()">
+                   <p class="text-sm">JOYRYDE</p>
                 </button>
-                <button class="active:bg-blue-200" onclick="habstrakt()">
-                    <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/habstrakt.png" alt="habstrakt">
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="habstrakt()">
+                    <p class="text-sm">habstrakt</p>
                 </button>
-                <button class="active:bg-blue-200" onclick="nickleng()">
-                    <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/nickleng.png" alt="nick leng">
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="nickleng()">
+                    <p class="text-sm">Nick Leng</p>
                 </button>
-                <button class="active:bg-blue-200" onclick="antohamc()">
-                    <img class="grayscale contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/antohamc.png" alt="antoha mc">
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="antohamc()">
+                    <p class="text-sm">Antoha MC</p>
                 </button>
             </div>
         </div>
@@ -131,17 +138,20 @@
 
 
     <!--footer (self-ad here)-->
-    <footer class="bottom-0 fixed bg-gray-300 outline outline-gray-500 outline-1 w-full">
-        <div class="flex flex-auto">
-            <div class="ml-5">
-                <p>Made with ❤️ >.<</p>
-                <p class="italic text-sm"></p>
-            </div>
+    <footer class="absolute bottom-0 bg-gray-300 outline w-screen outline-gray-500 outline-1">
+        <div class="ml-5 flex flex-row justify-between items-center">
+          <p>Made with ❤️ >.<</p>
+          <p class="italic text-sm"></p>
+          <a href="https://github.com/closebridge/google-tv-beta#google-tv-beta" target="_blank" rel="noopener noreferrer">
+            <img class="w-14 h-6" src="./com/photos/GitHub_Logo.png" alt="github page">
+          </a>
         </div>
-    </footer>
+      </footer>
 
 
     <script>
+        //cornerClock(); (I'm ready to scrap this idea, but not sure though...?)
+        changeLogs();
         search();
     </script>
 </body>
