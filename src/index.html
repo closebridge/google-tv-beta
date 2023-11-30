@@ -7,24 +7,39 @@
     <title>Google TV Beta</title>
     <script src="./com/script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1030086749910749224/1175268599351496786/work.png">
+    <link rel="icon" type="image/x-icon" href="./com/photos/favicon.png">
+    <meta name="description" content="Google TV Beta is a good service to make people punch Mark's face with their hoax! :swag: :drooling_face:">
 
 <!--Embed section-->
     <meta name="application-name" content="Google TV Beta Invitation">
     <meta property="og:title" content="Google TV Beta Invitation">
     <meta property="og:description" content="YouTube TV Beta is an experimental service that let users stream content from large television provider /s">
 
-    <meta property="og:image" content="https://media.discordapp.net/attachments/1030086749910749224/1175268599351496786/work.png">
+    <meta property="og:image" content="./com/photos/favicon.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:alt" content="Google TV Beta">
+
+    <style>
+        
+    </style>
 </head>
 
 <body class="overflow-y-hidden">
+    <!--time to put seo specialist in my resumè-->
+    <div class="invisible fixed">
+        <h1>Google TV Beta is a (NOT) experimental service by Google. Dates back from 2008!</h1>
+        <h1>Page's sitemap</h1>
+        <ul>
+            <li><a href="/"></a>Home</li>
+            <li><a href="/*"></a>About us</li>
+            <li><a href="/*"></a>Our work</li>
+        </ul>
+    </div>
     <header class="flex flex-auto ml-9 mt-[2rem] static">
         <a href="*">
-            <img class="w-[14rem] h-[5rem] mt-1" src="https://media.discordapp.net/attachments/1030086749910749224/1175257907886051339/GOOGLE_TElevision.png" alt="Google Television BETA">
+            <img class="w-[14rem] h-[5rem] mt-1 fixed" src="./com/photos/title.png" alt="Google Television BETA">
         </a>
-        <div>
+        <div class="relative ml-[12rem]">
             <div>
                 <div class="flex flex-row ml-6">
                     <label for="searchbox"></label>
@@ -32,30 +47,25 @@
                     <button class="ml-2" id="searchnow" onclick="search()">
                         <p class="bg-gray-100 outline outline-1 outline-gray-300 px-2 pt-1 pb-1">Search</p>
                     </button>
+                    <button class="ml-5" onclick="advanceSearchWindow(); debugOnly()">
+                        <p class="text-blue-500 underline">advance option</p>
+                    </button>
                 </div>
             </div>
-                <div id="changelogPlace" class="-ml-[6rem] flex flex-auto gap-0 scale-75 max-w-[70rem] max-h-[13rem] overflow-scroll overflow-y-hidden">
-                    <div class="pr-8">
-                        <a href="*" class="text-blue-600">Hi chat<a>
-                        <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
-                    </div>
-                    <div class="pr-8">
-                        <a href="*" class="text-blue-600">Hi chat</a href="*">
-                        <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
-
-                    </div>
-                    <div class="pr-8">
-                        <a href="*" class="text-blue-600">Hi chat</a href="*">
-                        <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
-
-                    </div>
-                    <div class="pr-8">
-                        <a href="*" class="text-blue-600">Hi chat</a href="*">
-                        <p class="text-sm w-64 italic text-green-700">As our hi chat changelog is coming to an end, I would love to say that I appreciate your support!</p>
-
-                    </div>
+            <div id="changelogPlace" class="-ml-[6rem] flex flex-auto gap-0 scale-75 max-w-[70rem] max-h-[13rem] overflow-scroll overflow-y-hidden">
+                <div class="pr-8">
+                    
                 </div>
-            
+                <div class="pr-8">
+                    
+                </div>
+                <div class="pr-8">
+                    
+                </div>
+                <div class="pr-8">
+                    
+                </div>
+            </div>
         </div>
     </header>
 
@@ -75,43 +85,86 @@
             </div>
         </div>
     </div>
+    <!--advance search-->
+    <div id="advanceSearch" class="fixed invisible inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-50 text-sm">
+        <div class="bg-white p-8 rounded shadow-lg">
+            <div class="flex justify-end">
+                <button onclick="advanceSearchWindow()" class="text-gray-600 text-lg outline outline-1 rounded-lg px-2 mr-1">Apply</button>
+                <button onclick="advanceSearchWindow(); debugOnly()" class="text-gray-600 text-lg outline outline-1 rounded-lg px-2">&times;</button>
+            </div>
+            <h1 class="text-2xl font-semibold mb-7">Advance option (Coming Soon)</h1>
+            Fetch video (No override!)
+            <input type="checkbox" name="video" id="ASVideo" disabled="disabled" checked><br>
+            Fetch channel
+            <input type="checkbox" name="channel" id="ASChannel"><br>
+            Fetch playlist
+            <input type="checkbox" name="playlist" id="ASPlaylist"><br>
+            No 'Imaginary Ads' system
+            <input type="checkbox" name="channel" id="ASAds"></p>
+            <p class="italic">Uhh why is everything Anya??
+            <input type="checkbox" name="channel" id="Anyanal">
+            <p class="mt-4 text-center italic">Google TV Beta, a project by (bridge)</p><br>
+            <div id="">
+                <p class="font-mono">debug info</p>
+                <div class="flex">
+                    <p id="tokenIdPlace" class="text-sm/[8px] font-mono">token</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!--small screen popup-->
+    <div id="smallScreen">
+        <div id="smallScreenPopUp" class="fixed invisible inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-90 text-sm">
+            <div class="bg-white p-8 rounded shadow-lg h-[25rem] w-[20rem]">
+                <h1 class="font-bold text-xl">Hold your horse!</h1>
+                <p>I know that you are trying to have fun while on mobile screen...</p><br><br>
+                <p>...but you know, this page isn't designed for mobile in mind fron the beginning</p><br>
+                <p>It's incredibly broken, but since I'm a nice guy, you still can use it!</p><br>
+                <p>Don't expect good experience though...</p><br>
+                <button onclick="smallScreenPopUpRemove()" class="bg-slate-100 outline outline-1 outline-gray-200 rounded-md px-9 pt-3 pb-3">
+                    <p class="text-center">I get it, let me in!</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    
     <!--main content (my guy really spent 5 hours trying to make this work :kekw:...)-->
     <div class="grid relative grid-cols-3 grid-rows-3 grid-flow-row mt-5 ml-10 pl-[4rem]" >
         <div>
             <div class="outline outline-1 outline-gray-300 max-w-[5rem] max-h-[150px]"> <!--first picker-->
                 <button class="active:bg-blue-200" onclick="loadYoutube()">
-                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174344762896171109/502px-Logo_of_YouTube_282015-201729.png" alt="youtube">
+                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/youtube.png" alt="youtube">
                 </button>
                 <button class="active:bg-blue-200" onclick="loadVTV()">
-                    <img  class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1174185833956384823/1200px-Vietnam_Television_logo_from_2013.png" alt="vtv">
+                    <img  class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/vtv.png" alt="vtv">
                 </button>
                 <button class="active:bg-blue-200" onclick="loadVTC()">
-                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="https://media.discordapp.net/attachments/1030086749910749224/1177621314522071121/1200px-VTC_official_logo.png" alt="vtc">
+                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/vtc.png" alt="vtc">
                 </button>
 
             </div>
-            <div class="outline outline-1 outline-gray-300 max-w-[5rem] overflow-scroll max-h-[14rem] mt-4" > <!--second picker-->
+            <div class="outline outline-1 outline-gray-300 max-w-[5rem] overflow-scroll max-h-[20rem] mt-4" > <!--second picker-->
                 <button class="active:bg-blue-200 hover:bg-blue-100" onclick="stillWoozy()">
-                    <p class="text-sm">Still Woozy</p>
+                    <p class="text-sm text-start">Still Woozy</p>
                 </button>
                 <button class="active:bg-blue-200 hover:bg-blue-100" onclick="joyryde()">
-                   <p class="text-sm">JOYRYDE</p>
+                   <p class="text-sm text-start">JOYRYDE</p>
                 </button>
                 <button class="active:bg-blue-200 hover:bg-blue-100" onclick="habstrakt()">
-                    <p class="text-sm">habstrakt</p>
+                    <p class="text-sm text-start">habstrakt</p>
                 </button>
                 <button class="active:bg-blue-200 hover:bg-blue-100" onclick="nickleng()">
-                    <p class="text-sm">Nick Leng</p>
+                    <p class="text-sm text-start">Nick Leng</p>
                 </button>
                 <button class="active:bg-blue-200 hover:bg-blue-100" onclick="antohamc()">
-                    <p class="text-sm">Antoha MC</p>
+                    <p class="text-sm text-start" >Antoha MC</p>
                 </button>
             </div>
         </div>
         <div  class="w-[14rem] absolute left-[160px] h-12 max-w-xl"> <!--video's thumbnail-->
             <div id="thumbnailhere">
-                <img src="https://media.discordapp.net/attachments/1030086749910749224/1177598751586656366/frontpage.png" alt="thumbnail">
+                <img src="./com/photos/frontpage.png" alt="thumbnail">
             </div>
         </div>
         <div class="absolute left-[10rem] mt-[8rem] pr-6 ">
@@ -129,7 +182,9 @@
         </div>
         
         <div class="absolute left-[25rem]" id="videoplayback"> <!--video-->
-            <iframe  width="660" height="380" src="https://www.youtube.com/embed/J9SK_M_nVWA?si=9u3ezTlXu80jpJKh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe  width="660" height="380" src="https://www.youtube.com/embed/J9SK_M_nVWA?si=9u3ezTlXu80jpJKh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+            </iframe>
         </div>
 
     </div>
@@ -138,10 +193,10 @@
 
 
     <!--footer (self-ad here)-->
-    <footer class="absolute bottom-0 bg-gray-300 outline w-screen outline-gray-500 outline-1">
+    <footer class="fixed bottom-0 bg-gray-300 outline w-screen outline-gray-500 outline-1">
         <div class="ml-5 flex flex-row justify-between items-center">
-          <p>Made with ❤️ >.<</p>
-          <p class="italic text-sm"></p>
+          <p>Made with ❤️</p>
+          <p id="cuteStuff" class="gap-0"></p>
           <a href="https://github.com/closebridge/google-tv-beta#google-tv-beta" target="_blank" rel="noopener noreferrer">
             <img class="w-14 h-6" src="./com/photos/GitHub_Logo.png" alt="github page">
           </a>
@@ -153,6 +208,8 @@
         //cornerClock(); (I'm ready to scrap this idea, but not sure though...?)
         changeLogs();
         search();
+        loopBack();
+        randomCuteFace();
     </script>
 </body>
 </html>
