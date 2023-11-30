@@ -9,6 +9,7 @@
 * Myself ❤️
 * InfiniteSolution team (for the hoax itself)
 * YouTube (for their half shit/half awesome API) 😄
+* Faye (For helping many aspect of the project) 😃
 
 ## Screenshot
 ![image](https://github.com/closebridge/google-tv-beta/assets/108937010/63cde464-3a32-4fe3-9ccf-5c66a24766a0)
