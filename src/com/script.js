@@ -1,7 +1,14 @@
 const apikey = 'AIzaSyCyWqJthAKUW8HtdWLKVHu1U-9K5DUi0U4'; // ALWAYS CHECK APIKEY BEFORE SEND TO PRODUCTION!!!!!!!!!! PAST/FUTURE SELF!
 const cache = {};
 const maxResults = '35';
+// dev api token lies here, im too scared to add anything like that in... 😭 anyways welcome to boilerplate hell
 
+function debugOnly() {
+    const showId = document.getElementById('tokenIdPlace');
+
+    showId.innerHTML ='';
+    showId.innerHTML ='Token: ' + `${apikey}` + ' (Prod token)';
+}
 
 // Uses exclusively for non-specific search
 function search() {
@@ -118,7 +125,7 @@ function playVideo(videoId) {
 
 function loadYoutube() {
     //console.log('Uhh so I am still trying to make it work without framework (also with my limited skill) ')
-    const youtubeImagey = 'https://media.discordapp.net/attachments/1030086749910749224/1174344762896171109/502px-Logo_of_YouTube_282015-201729.png';
+    const youtubeImagey = './com/photos/youtube.png';
     const mainui = {
         searchResultsList: document.getElementById('searchResultsList'),
         videoplayback: document.getElementById('videoplayback'),
@@ -130,7 +137,7 @@ function loadYoutube() {
     mainui.youtubeElement.src = youtubeImagey;
 
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.youtubeElement);
     mainui.searchtext.textContent= 'Results from YouTube';
@@ -139,7 +146,7 @@ function loadYoutube() {
 }
 
 function loadVTV() {
-    const vtvImagey = 'https://media.discordapp.net/attachments/1030086749910749224/1177616036565106738/vtvcover.png';
+    const vtvImagey = './com/photos/vtvcover.png';
     const vtvID = 'UCabsTV34JwALXKGMqHpvUiA';
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${vtvID}&type=video&maxResults=50&key=${apikey}`;
     const maxResults = '35';
@@ -154,7 +161,7 @@ function loadVTV() {
     mainui.VTVElement.src = vtvImagey;
 
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.VTVElement);
     mainui.searchtext.textContent= 'Results from VTV';
@@ -176,7 +183,7 @@ function loadVTV() {
 }
 
 function loadVTC() {
-    const vtcImagey = 'https://media.discordapp.net/attachments/1030086749910749224/1177622005344915466/vtc.png';
+    const vtcImagey = './com/photos/vtccover.png';
     const vtcID = 'UCL9-pEHNBs3N4r2bMoXdLJA';
     const maxResults = '35';
     const mainui = {
@@ -190,7 +197,7 @@ function loadVTC() {
     mainui.VTCElement.src = vtcImagey;
 
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.VTCElement);
     mainui.searchtext.textContent= 'Results from VTC';
@@ -220,7 +227,7 @@ function loadHolder() {
         searchtext: document.getElementById('searchtext'),
     }
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     youtubeElement: document.createElement('img'),
     mainui.searchtext.textContent= 'Not available/Chưa phát triển 🥹😥';
@@ -252,7 +259,7 @@ function stillWoozy() {
 
     mainui.theElement.src = theStillWoozy;
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.theElement);
     mainui.searchtext.textContent= 'Still Woozy';
@@ -280,7 +287,7 @@ function joyryde() {
 
     mainui.theElement.src = theJOYRYDE;
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.theElement);
     mainui.searchtext.textContent= 'JOYRYDE';
@@ -308,7 +315,7 @@ function habstrakt() {
 
     mainui.theElement.src = theHabstrakt;
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.theElement);
     mainui.searchtext.textContent= 'Habstrakt';
@@ -336,7 +343,7 @@ function nickleng() {
 
     mainui.theElement.src = theNickLeng;
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.theElement);
     mainui.searchtext.textContent= 'Nick Leng';
@@ -364,7 +371,7 @@ function antohamc() {
 
     mainui.theElement.src = theAntohaMC;
     mainui.searchResultsList.innerHTML='';
-    mainui.videoplayback.innerHTML='';
+    ////mainui.videoplayback.innerHTML='';
     mainui.thumbnailhere.innerHTML='';
     mainui.thumbnailhere.appendChild(mainui.theElement);
     mainui.searchtext.textContent= 'Antoha MC';
@@ -381,6 +388,39 @@ function antohamc() {
     .catch(error => console.error('Error fetching data:', error));   
 }
 
+
+
+// Advance search
+function advanceSearchWindow() { 
+    const popup = document.getElementById('advanceSearch');
+    document.body.classList.toggle('blurred');
+    popup.classList.toggle('invisible');
+    document.getElementById('advanceSearch').addEventListener('click', function (event) {
+        if (event.target === this) {
+            advanceSearchWindow();
+        }
+    });
+}
+
+//Horizontal viewport function
+document.addEventListener('DOMContentLoaded', function() {
+    function smallscreenPopUp() {
+        const thePopUp = document.getElementById('smallScreenPopUp');
+        thePopUp.classList.toggle('invisible');
+    }
+    
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        console.log('Ayo mobile user');
+        smallscreenPopUp();
+    } else {
+        console.log('You are good bro!');
+    }
+});
+
+function smallScreenPopUpRemove() {
+    const smallScreen = document.getElementById('smallScreen');
+    smallScreen.innerHTML = '';
+}
 
 
 
@@ -400,10 +440,10 @@ async function changeLogs() {
             const ghRepoNotes = userData.map(commits => `
                 <div>
                     <a href="https://github.com/${ghName}/${ghRepo}/commits" target="_blank">
-                        <p  class="text-blue-600">${commits.commit.author.name}</p>
+                        <p  class="text-blue-600">${commits.sha.slice(0, 7)}</p>
                     </a>
                     <p class="text-sm w-64 italic text-green-700">${commits.commit.message}</p>
-                    <p class="italic">@${commits.sha.slice(0, 7)}</p>
+                    <p class="italic">Blame to ${commits.commit.author.name}</p>
                 </div>
             `).join('');
             changelogList.innerHTML = '';
@@ -417,3 +457,33 @@ async function changeLogs() {
     
 }
 
+
+//Cute face fetch
+
+function randomCuteFace() {
+    const cuteFace = document.getElementById('cuteStuff');
+
+    fetch('theUwUs.txt')
+    .then(response => response.text())
+    .then(data => {
+        // Parse the text content into an array
+        const texts = data.split('\n').filter(text => text.trim() !== '');
+
+        // Pick a random text from the array
+        const randomText = texts[Math.floor(Math.random() * texts.length)];
+
+        // Display the random text
+        cuteFace.innerHTML = randomText;
+    })
+    .catch(error => {
+        console.error('No cuteness...', error);
+    });
+}
+
+
+
+//No API stealing, that's piracy (jk)
+function loopBack() {
+    console.log("No API Token thief!!!, I already restricted the key to this website ONLY!")
+    setTimeout(loopBack, 2000);
+}
