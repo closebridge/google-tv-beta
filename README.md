@@ -8,10 +8,10 @@
 ## Credit
 * Myself ❤️
 * InfiniteSolution team (for the hoax itself)
-* YouTube 😄
+* YouTube (for their half shit/half awesome API) 😄
 
 ## Screenshot
-![image](https://github.com/closebridge/google-tv-beta/assets/108937010/52d7da20-8434-4866-b546-890f1c73630f)
+![image](https://github.com/closebridge/google-tv-beta/assets/108937010/63cde464-3a32-4fe3-9ccf-5c66a24766a0)
 *How cool is that?*
 
 ## Page feature
@@ -24,13 +24,13 @@ As this project is a silly side project to recreate a funny hoax, of course I wa
 4. Fill up the 2nd channel picker 
 5. Working changelog
    
-### Working in Progress  
+### Works in Progress  
 1. Actual navbar instead of decoration 💨
 2. "Login" prompt (for video history). 💤
-3. Advance Search (search point to different thing if checked) (Not yet materialized) 🤔
+3. Advance Search (search point to different thing if checked) 💨
 4. API Token window (Not yet materialized) 🤔
 5. Actual channel sorting system 💤
-6. Imaginary "ad" player (Not yet materialized) 🤔
+6. Imaginary "ad" player 💤
  
 
 **Subject to changes**
