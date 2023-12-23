@@ -12,7 +12,7 @@
 * Faye (For helping many aspect of the project) 😃
 
 ## Screenshot
-![image](https://github.com/closebridge/google-tv-beta/assets/108937010/63cde464-3a32-4fe3-9ccf-5c66a24766a0)
+![image](https://github.com/closebridge/google-tv-beta/assets/108937010/f08fa65f-e2b7-457d-92e2-1b52fc640c4e)
 *How cool is that?*
 
 ## Page feature
