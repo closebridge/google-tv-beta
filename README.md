@@ -25,14 +25,13 @@ As this project is a silly side project to recreate a funny hoax, of course I wa
 4. Fill up the 2nd channel picker 
 5. Working changelog
    
-### Works in Progress  
-1. Actual navbar instead of decoration 💨
-2. "Login" prompt (for video history). 💤
-3. Advance Search (search point to different thing if checked) 💨
-4. API Token window (Not yet materialized) 🤔
-5. Actual channel sorting system 💤
-6. Imaginary "ad" player 💤
- 
+### Milestones
+With milestones, it's would be much easier to focus on aspect of the project, and prioritize works that have to be- eventually done.
+
+✅**Milestone 1**:✅ Basic functionality<br>
+✅**Milestone 2**:✅ Addon functionality<br>
+💨**Milestone 2**:💨 User personalization functionality
+
 
 **Subject to changes**
 
