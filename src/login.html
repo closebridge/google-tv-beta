@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Google TV Beta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./com/login.js"></script>
+    <link rel="icon" type="image/x-icon" href="./com/photos/favicon.png">
+
+
+
+    
+</head>
+<body>
+    <div class="flex static top-0 mt-3 ml-4">
+        <img src="./com/photos/title.png" alt="Google TV Beta" class="w-19 h-16">
+        <h1 class="bg-gray-200 h-6 w-screen mt-4 pl-3">Welcome to Google TV</h1>
+    </div>
+
+    <div class="bg-red-300 ring-1 ring-red-600/20 absolute center ml-auto mr-auto left-0 right-0 w-[30rem] text-center " id="loginRequired">
+        
+    </div>
+
+
+    <div class="flex flex-row mt-[3rem] sm:flex-row-1 sm:ml-1 md:ml-2 lg:ml-10 sm:text-xm md:text-lg lg:text-xl">
+        <div class="w-1/2">
+            <p class="font-bold">A Google aproach to TV on demand.</p><br>
+            <p>
+            Google TV is a popular hoax which dates back from 2009, by infinitesolution. The hoax features an upcoming "feature" from Google which tell you about Google TV Beta, and how to sign up for it, which is super tedious to do.
+            <br><br>
+            The invites are generated once every single day, and the project is open sourced on GitHub.
+            </p><br><br>
+            <p class="font-bold" id="theInvites">10 invites remaining</p>
+            <p class="italic scale-75">Don't worry, it's all fictional and does not affect much (for now).</p>
+        </div>
+        <div class="bg-gray-50 gap-y-2 outline outline-1 outline-gray-300 rounded-sm ring-1 ring-gray-400 relative ml-auto mr-3 w-auto h-[12rem] sm:h-[12rem] max-w-64 sm:text-xs md:text-sm lg:text-xl md:mr-9 lg:mr-12">
+            <p class="text-center">Sign in with your</p>
+            <div class="flex items-center object-center justify-center gap-3 ">
+                <img src="./com/photos/NOTgooglelogo.png" alt="Google logo" class="w-16 h-18">
+                <p class="font-bold"> Account</p>
+            </div>
+            <div class="flex flex-col text-sm mt-2"> <!--login-->
+                <div class="flex flex-col text-start gap-y-2 ml-1">
+                    <div class="text-sm flex gap-2">
+                        <p>Username:</p>
+                        <input onkeydown="loginKey(event)" type="email" name="Email" id="shitFromUser" class="bg-gray-100 outline outline-1 outline-gray-400 rounded-sm focus-within:ring focus-within:ring-blue-600">
+                    </div>
+                    <div class="text-sm flex gap-3">
+                        <p>Password: </p>
+                        <input onkeydown="loginKey(event)" type="password" name="Password" id="passwordFromUser" class="bg-gray-100 outline outline-1 outline-gray-400 rounded-sm focus-within:ring focus-within:ring-blue-600">
+                    </div>
+                </div>
+            <div class="text-xs" id="infoReportAAAAAA">
+                <p> </p>
+            </div>
+
+        </div>
+            <div class="flex gap-2">
+                <input type="checkbox" name="rememberLogin" id="rememberLogin" class="ml-2 ">
+                <p class="text-sm">Remember me on this computer</p><br>
+            </div>
+                
+            <div class="flex flex-col">
+                <div class="flex justify-center">
+                    <button type="button" onclick="validateLogin()" class="outline outline-1 outline-blue-200 text-sm bg-gray-100 active:ring-red-300 w-14">Sign in</button>
+                </div>
+                
+                <button class="underline text-blue-600 text-sm ">New to this? Create an account!</button>
+            </div>
+            
+        </div>
+    </div><br><br>
+
+    <div class="flex gap-x-4 justify-center"> <!--footer-->
+        <p class="text-gray-500">What's a ©? (bridge), 2024</p>
+        <a class="text-blue-600 underline" href="https://www.google.com">Google Home</a>
+        <a class="text-blue-600 underline" href="https://termly.io/resources/templates/terms-and-conditions-template/">Terms of Service</a>
+        <a class="text-blue-600 underline" href="https://policies.google.com/privacy?hl=en-US">Privacy Policy</a>
+    </div>
+    
+
+    <script>
+        randomInvites()
+    </script>
+</body>
+</html>

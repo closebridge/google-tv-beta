@@ -1,0 +1,298 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <title>Google TV Beta</title>
+    <script src="./com/script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/src/com/login.js"></script>
+    <script src="/src/com/userData.js"></script>
+    
+    <link rel="icon" type="image/x-icon" href="./com/photos/favicon.png">
+    <meta name="description" content="Google TV Beta is a good service to make people punch Mark's face with their hoax! :swag: :drooling_face:">
+
+<!--Embed section-->
+    <meta name="application-name" content="Google TV Beta Invitation">
+    <meta property="og:title" content="Google TV Beta Invitation">
+    <meta property="og:description" content="YouTube TV Beta is an experimental service that let users stream content from large television provider /s">
+
+    <meta property="og:image" content="./com/photos/favicon.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Google TV Beta">
+
+    <style>
+        
+    </style>
+</head>
+
+<body class="overflow-y-auto">
+    <!--time to put seo specialist in my resumè-->
+    <div class="invisible fixed">
+        <h1>Google TV Beta is a (NOT) experimental service by Google. Dates back from 2008!</h1>
+        <h2>Page's sitemap</h2>
+        <ul>
+            <li><a href="/"></a>Home</li>
+            <li><a href="/*"></a>About us</li>
+            <li><a href="/*"></a>Our work</li>
+        </ul>
+    </div>
+    <br>
+    <header class="flex flex-auto ml-9 static">
+        <a href="*">
+            <img class="w-[14rem] h-[5rem] mt-1 absolute" src="./com/photos/title.png" alt="Google Television BETA">
+        </a>
+        <div class="relative ml-[12rem]">
+            <div>
+                <div class="flex flex-row ml-6">
+                    <label for="searchbox"></label>
+                    <input type="text" id="searchbox" onkeydown="enterDown(event)" class="block w-[40rem] rounded-md border-0 py-1.5 pl-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black" placeholder="Search for Program">
+                    <button class="ml-2" id="searchnow" onclick="search()">
+                        <p class="bg-gray-100 outline outline-1 outline-gray-300 px-2 pt-1 pb-1">Search</p>
+                    </button>
+                    <button class="ml-5" onclick="advanceSearchWindow(); debugOnly()">
+                        <p class="text-blue-500 underline">advance option</p>
+                    </button>
+                </div>
+            </div>
+            <div id="changelogPlace" class="-ml-[6rem] flex flex-auto gap-0 scale-75 max-w-[70rem] max-h-[13rem] overflow-scroll overflow-y-hidden">
+                <div class="pr-8">
+                    
+                </div>
+                <div class="pr-8">
+                    
+                </div>
+                <div class="pr-8">
+                    
+                </div>
+                <div class="pr-8">
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="theNavBar" class="bg-gray-200 relative mx-auto" style="border-top-color: #565555; border-top-width: 2px;">
+        <div class="flex flex-auto  justify-between text-blue-600">
+            <div class="pl-5 flex gap-x-10 sm:gap-x-3 md:gap-x-7">
+                <button id="navbar0" class="font-bold text-black">Front page</button>
+                <button onclick="mostPopular()" id="navbar1">Most Popular</button>
+                <button onclick="historyVideo()" id="navbar2">Last Viewed</button>
+            </div>
+            <div class="text-right flex">
+                <button class="pr-6">RSS</button>
+                <button class="pr-4" onclick="callLoginPopup()">Your session</button>
+            </div>
+        </div>
+    </div>
+    
+    <!--userid stats-->
+    <div id="userIDStats" class="invisible">
+        <div class="fixed right-0 z-50 flex items-end justify-end bg-gray-200 bg-opacity-50 text-sm">
+            <div class="bg-white p-8 rounded shadow-lg w-[15rem]">
+                <div>
+                    <h2 class="font-bold text-xl">Session manager</h2><br>
+                </div>
+                <div>
+                    <p id="userToken"></p>
+                    <button onclick="userTokenLogout()" class="text-gray-600 mt-2">Log out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--lowkey weird ass sign up window-->
+    <div id="signupSystem" class="invisible">
+        <div class="fixed inset-0 right-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-90 text-sm">
+
+            <div class="bg-white p-8 rounded shadow-lg w-[22rem]">
+                <button onclick="toggleSignupWindow()" class="outline outline-1 justify-end items-end bg-slate-100 outline-gray-300 p-2 rounded-md w-14">&times;</button>
+                <div>
+                    <h2 class="font-bold text-xl">Sign up (comming soon)</h2><br>
+                </div>
+                <div>
+                    <input  class="w-full h-[2rem] bg-gray-50 rounded-md pl-1 outline outline-1 outline-gray-300" type="text" name="Your preferred ID" id="signupID" placeholder="Your preferred ID" disabled>
+                    <!--<input class="w-full h-[2rem] bg-gray-50 rounded-md pl-1 outline outline-1 outline-gray-300 mt-1" type="text" name="optional" id="displayName" placeholder="Your display name (optional)">-->
+                    <input  class="w-full h-[2rem] bg-gray-50 rounded-md pl-1 outline outline-1 outline-gray-300 mt-1" type="password" name="Your ID's Password" id="signupPassword" placeholder="Your password" disabled><br><br>
+                    <div class="text-red-500" id="skillIssue">
+
+                    </div>
+
+                    <button onclick="pushCreds()" class="outline outline-1 bg-slate-100 outline-gray-300 p-2 rounded-md w-full" disabled>Sign up</button>
+                    <button onclick="toggleButtone()" class="text-blue-600 mt-2">Have an account? Log in here!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--cooldown notice-->
+    <div id="cooldownPopup" class="invisible">
+        <div class="fixed flex flex-row right-3 top-0 justify-end bg-red-50 rounded-lg items-end outline mt-1 outline-1 outline-gray-200">
+            <div class="flex flex-col px-3 pt-3 pb-3">
+                <p>Oh no, cooldown!</p>
+                <p class="scale-75 italic">pwease b chill >.< </p>
+            </div>
+            <button id="cooldownButton" onclick="cooldownThing()">
+                <img src="/src/com/photos/fobiddn.png" alt="close thhis thing down you degenerate horny ass shit please go away from me and never come back i swear i would punch you in the chest if you ever came back like boy gtfo man!!!!">
+            </button>
+        </div>
+    </div>
+
+    
+
+    <!--advance search-->
+    <div id="advanceSearch" class="fixed invisible inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-50 text-sm">
+        <div class="bg-white p-8 rounded shadow-lg">
+            <div class="flex justify-end">
+                <button onclick="advanceSearchWindow() ;removeHistory()" class="text-gray-600 text-lg outline outline-1 rounded-lg px-2 mr-1">Clear history</button>
+                <button onclick="advanceSearchWindow()" class="text-gray-600 text-lg outline outline-1 rounded-lg px-2 mr-1">Apply</button>
+                <button onclick="advanceSearchWindow(); debugOnly()" class="text-gray-600 text-lg outline outline-1 rounded-lg px-2">&times;</button>
+            </div>
+            <h1 class="text-2xl font-semibold mb-7">Advance option (Coming Soon)</h1>
+            Fetch video (No override!)
+            <input type="checkbox" name="video" id="ASVideo" disabled="disabled" checked><br>
+            No 'Imaginary Ads' system
+            <input type="checkbox" name="channel" id="ASAds"></p>
+            terrible
+            <input type="checkbox" name="channel" id="Anyanal"><br>
+
+            <p class="mt-4 text-center italic">Google TV Beta, a project by (bridge)</p><br>
+            <div id="">
+                <p class="font-mono">debug info</p>
+                <div class="flex">
+                    <p id="tokenIdPlace" class="text-sm/[8px] font-mono">token</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--token selector screen-->
+    <div id="tokenSelector" class="invisible">
+        <div class="fixed  inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-90 text-sm">
+            <div class="bg-white p-8 rounded shadow-lg w-[32rem]">
+                <div>
+                    <h2 class="font-bold text-xl">Token Selector</h2><br>
+                    <p>Seems like our main prod token has ran out of given quotas (10000), now it's your own choice to pick a backup token.</p><br>
+                </div><br>
+                <div>
+                   <input type="checkbox" name="Production" id="prodAPI" class="scale-125" disabled> 
+                   Production token (exhausted)<br>
+                   <input type="checkbox" name="Backup" id="backupAPI" class="scale-125">
+                    Backup token
+                </div><br>
+                <div>
+                    <p>...Or even better, use your own API!</p>
+                    <input  class="w-full h-[2rem] bg-gray-50 rounded-md pl-1 outline outline-1 outline-gray-300 mt-1" type="text" name="Your API" id="userAPI" placeholder="Your API Token"><br>
+                    <p class="italic font-mono text-xs">Don't worry, we don't log your token at all.</p>
+                </div><br>
+                <button onclick="tokenConfirmation()" class="text-gray-600 translate-x-1/2 text-lg outline outline-1 rounded-md px-[5rem] mr-1">Okay</button><br>
+                <p class="text-xs italic text-center">If you select nothing, token would leave <strong>unchanged.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!--small screen popup-->
+    <div id="smallScreen">
+        <div id="smallScreenPopUp" class="fixed invisible inset-0 z-50 flex items-center justify-center bg-gray-200 bg-opacity-90 text-sm">
+            <div class="bg-white p-8 rounded shadow-lg h-[25rem] w-[20rem]">
+                <h1 class="font-bold text-xl">Hold your horse!</h1>
+                <p>I know that you are trying to have fun while on mobile screen...</p><br><br>
+                <p>...but you know, this page isn't designed for mobile in mind fron the beginning</p><br>
+                <p>It's incredibly broken, but since I'm a nice guy, you still can use it!</p><br>
+                <p>Don't expect good experience though...</p><br>
+                <button onclick="smallScreenPopUpRemove()" class="bg-slate-100 outline outline-1 outline-gray-200 rounded-md px-9 pt-3 pb-3">
+                    <p class="text-center">I get it, let me in!</p>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!--main content (my guy really spent a whole day fucking the grid :kekw:...)-->
+    <div id="theMainContent" class="grid relative mt-5 ml-10 pl-[4rem]" >
+        <div>
+            <div class="outline outline-1 outline-gray-300 max-w-[5rem] max-h-[150px]"> <!--first picker-->
+                <button class="active:bg-blue-200" onclick="loadYoutube()">
+                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/youtube.png" alt="youtube">
+                </button>
+                <button class="active:bg-blue-200" onclick="loadVTV()">
+                    <img  class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/vtv.png" alt="vtv">
+                </button>
+                <button class="active:bg-blue-200" onclick="loadVTC()">
+                    <img class="scale-75 grayscale  contrast-50 brightness-100 hover:grayscale-0 hover:contrast-100 " src="./com/photos/vtc.png" alt="vtc">
+                </button>
+
+            </div>
+            <div class="outline outline-1 outline-gray-300 max-w-[5rem] overflow-scroll max-h-[20rem] mt-4" > <!--second picker-->
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="stillWoozy()">
+                    <p class="text-sm text-start overflow-hidden">Still Woozy</p>
+                </button>
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="joyryde()">
+                   <p class="text-sm text-start overflow-hidden">JOYRYDE</p>
+                </button>
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="habstrakt()">
+                    <p class="text-sm text-start overflow-hidden">habstrakt</p>
+                </button>
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="nickleng()">
+                    <p class="text-sm text-start overflow-hidden">Nick Leng</p>
+                </button>
+                <button class="active:bg-blue-200 hover:bg-blue-100" onclick="antohamc()">
+                    <p class="text-sm text-start overflow-hidden" >Antoha MC</p>
+                </button>
+            </div>
+        </div>
+        <div  class="w-[14rem] absolute left-[160px] h-12 max-w-xl"> <!--video's thumbnail-->
+            <div id="thumbnailhere">
+                <img src="./com/photos/frontpage.png" alt="thumbnail">
+            </div>
+        </div>
+        <div class="absolute left-[10rem] mt-[8rem] pr-6 ">
+            <div class="list-none ml-3 max-w-[12rem]">
+                <li id="list1">
+                    <div class="relative left-2">
+                        <div id="searchtext">Recommendation:</div>
+                        <ul id="searchResultsList" class="overflow-scroll max-h-[15rem]"> 
+                            
+                            
+                        </ul>
+                    </div>
+                </li>
+            </div>
+        </div>
+        
+        <div class="absolute left-[25rem]" id="videoplayback"> <!--video-->
+            <iframe  width="660" height="380" src="https://www.youtube.com/embed/J9SK_M_nVWA?si=9u3ezTlXu80jpJKh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+            </iframe>
+        </div>
+
+    </div>
+    
+    
+
+
+    <!--footer (self-ad here)-->
+    <footer class="fixed bottom-0 bg-gray-300 outline w-screen outline-gray-500 outline-1">
+        <div class="ml-5 flex flex-row justify-between items-center">
+          <p>Made with ❤️</p>
+          <p id="cuteStuff" class="gap-0"></p>
+          <a href="https://github.com/closebridge/google-tv-beta#google-tv-beta" target="_blank" rel="noopener noreferrer">
+            <img class="w-14 h-6" src="./com/photos/GitHub_Logo.png" alt="github page">
+          </a>
+        </div>
+      </footer>
+
+
+    <script>
+        //cornerClock(); (I'm ready to scrap this idea, but not sure though...?)
+        changeLogs();
+        search();
+        //loopBack();
+        randomCuteFace();
+        checkIfLogon();
+
+        document.onload = checkIfLogon;
+    </script>
+</body>
+</html>
