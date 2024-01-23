@@ -6,7 +6,7 @@ document.onload = checkIfLogon;
 
 function checkIfLogon() {
     if (!localStorage.getItem('loginStatus')) {
-        window.location.href = "/src/login.html";
+        window.location.href = "./login.html";
         document.onload = loginBanner.innerText = 'Please login to use the "service", thanks for understanding';
     };
 };
@@ -49,7 +49,7 @@ function validateLogin() {
         thePopup.classList = ('text-green-700 text-xs')
         thePopup.innerText = 'Logged in, please wait!'
 
-        document.location.href = '/src/index.html'
+        document.location.href = './index.html'
         localStorage.setItem('loginStatus', 'true')
         localStorage.setItem('username', usernameInput)
         localStorage.setItem('password', passwordInput)
@@ -77,7 +77,7 @@ function userTokenLogout() {
     localStorage.setItem('password', '')
     alert('Logged out!');
     whole2.classList.toggle('invisible');
-    window.location.href = '/src/login.html'
+    window.location.href = './login.html'
 };
 
 function plagueUser() { // Feature where April Fool would be absolutely fucking fun to do
