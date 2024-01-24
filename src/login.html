@@ -35,7 +35,7 @@
             <p>
             Google TV is a popular hoax which dates back from 2009, by infinitesolution. The hoax features an upcoming "feature" from Google which tell you about Google TV Beta, and how to sign up for it, which is super tedious to do.
             <br><br>
-            The invites are generated once every single day, and the project is open sourced on GitHub.
+            The invites are purely fictional, and the project is up on GitHub.
             </p><br><br>
             <p class="font-bold" id="theInvites">invites remaining</p>
             <p class="italic scale-75">The login is for shown, you can set anything you like! It would not change.</p>
@@ -86,7 +86,11 @@
 
     </div>
     
-
+    <script>
+        if (localStorage.loginStatus == 'false' || sessionStorage.loginStatus == 'false') {
+            document.getElementById('loginRequired').innerText = 'Please login to use the "service", thanks for understanding';
+        };
+    </script>
     <script>
         randomInvites()
     </script>

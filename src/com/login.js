@@ -5,9 +5,9 @@ document.onload = checkIfLogon;
 
 
 function checkIfLogon() {
-    if (!localStorage.getItem('loginStatus')) {
+    if (localStorage.loginStatus == false || sessionStorage.loginStatus == false) {
         window.location.href = "./login.html";
-        document.onload = loginBanner.innerText = 'Please login to use the "service", thanks for understanding';
+        
     };
 };
 
@@ -37,7 +37,7 @@ function randomInvites() {
     const main = document.getElementById('theInvites')
 
     main.innerText = Math.floor(Math.random() * 69) + " invites remaining"
-}
+};
 
 function validateLogin() {
     const thePopup = document.getElementById('infoReportAAAAAA');
@@ -55,22 +55,21 @@ function validateLogin() {
     } else {
         thePopup.classList = ('text-green-700 text-xs')
         thePopup.innerText = 'Logged in, please wait!'
-
-        if (!rememberLogin.checked) {
-            document.location.href = './index.html'
-            sessionStorage.setItem('loginStatus', 'true')
-            sessionStorage.setItem('username', usernameInput)
-            sessionStorage.setItem('password', passwordInput)
-        } else {
+        if (rememberLogin.checked) {
             document.location.href = './index.html'
             localStorage.setItem('loginStatus', 'true')
             localStorage.setItem('username', usernameInput)
             localStorage.setItem('password', passwordInput)
+        } else {
+            document.location.href = './index.html'
+            sessionStorage.setItem('loginStatus', 'true')
+            sessionStorage.setItem('username', usernameInput)
+            sessionStorage.setItem('password', passwordInput)
         };
         
         
-    }
-}
+    };
+};
 
 
 function loginKey(event) {
@@ -87,15 +86,23 @@ function loginKey(event) {
 
 function userTokenLogout() {
     const whole2 = document.getElementById('userIDStats')
-    localStorage.setItem('loginStatus', 'false')
-    localStorage.setItem('username', '')
-    localStorage.setItem('password', '')
-    alert('Logged out!');
-    whole2.classList.toggle('invisible');
+    if (localStorage.loginStatus == 'true') {
+        localStorage.setItem('loginStatus', 'false')
+        localStorage.setItem('username', '')
+        localStorage.setItem('password', '')
+        alert('Logged out!');
+        whole2.classList.toggle('invisible');
+    } else if (sessionStorage.loginStatus == 'true') {
+        sessionStorage.setItem('loginStatus', 'false')
+        sessionStorage.setItem('username', '')
+        sessionStorage.setItem('password', '')
+        alert('Logged out!');
+        whole2.classList.toggle('invisible');
+    };
     window.location.href = './login.html'
 };
 
-function plagueUser() { // Feature where April Fool would be absolutely fucking fun to do
+function plagueUser() { // Feature where April Fool would be absolutely fucking fun to troll
 
 }
 
