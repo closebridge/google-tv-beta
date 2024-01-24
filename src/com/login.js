@@ -5,9 +5,8 @@ document.onload = checkIfLogon;
 
 
 function checkIfLogon() {
-    if (localStorage.loginStatus == false || sessionStorage.loginStatus == false) {
+    if (localStorage.loginStatus == false || sessionStorage.loginStatus == false || localStorage.loginStatus == null || sessionStorage.loginStatus == null ) {
         window.location.href = "./login.html";
-        
     };
 };
 
@@ -16,11 +15,23 @@ function callLoginPopup() {
     const theName = document.getElementById('userToken');
     
     if (localStorage.loginStatus == 'true') {
-        userManager.classList.toggle('invisible');
-        theName.innerText = 'Hey, ' + localStorage.getItem('username') + '!';
+        if (sessionStorage.loginStatus == 'false') {
+            userManager.classList.toggle('invisible');
+            theName.innerText = 'Hey, ' + localStorage.getItem('username') + '!';
+        } else {
+            userManager.classList.toggle('invisible');
+            theName.innerText = 'An exception has met, please log out and re-login';
+            theName.className = 'text-red-700';
+        };
     } else if (sessionStorage.loginStatus == 'true' ) {
-        userManager.classList.toggle('invisible');
-        theName.innerText = 'Hey, ' + sessionStorage.getItem('username') + '!';
+        if (localStorage.loginStatus == 'false') {
+            userManager.classList.toggle('invisible');
+            theName.innerText = 'Hey, ' + sessionStorage.getItem('username') + '!';
+        } else {
+            userManager.classList.toggle('invisible');
+            theName.innerText = 'An exception has met, please log out and re-login';
+            theName.className = 'text-red-700';
+        }
     } else {
         userManager.classList.toggle('invisible');
         theName.innerText = 'You ruined it!';
@@ -84,21 +95,16 @@ function loginKey(event) {
 
 
 
-function userTokenLogout() {
+function userTokenLogout() { // Simple reset all of the set storage, as a way to counter 2-true loginStatus
     const whole2 = document.getElementById('userIDStats')
-    if (localStorage.loginStatus == 'true') {
         localStorage.setItem('loginStatus', 'false')
         localStorage.setItem('username', '')
         localStorage.setItem('password', '')
-        alert('Logged out!');
-        whole2.classList.toggle('invisible');
-    } else if (sessionStorage.loginStatus == 'true') {
         sessionStorage.setItem('loginStatus', 'false')
         sessionStorage.setItem('username', '')
         sessionStorage.setItem('password', '')
         alert('Logged out!');
         whole2.classList.toggle('invisible');
-    };
     window.location.href = './login.html'
 };
 

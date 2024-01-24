@@ -39,7 +39,7 @@
         </ul>
     </div>
     <br>
-    <header class="flex flex-auto ml-9 static">
+    <header class="flex flex-auto ml-9 sm:gap-0 md:gap-3 lg:gap-8 static">
         <a href="*">
             <img class="w-[14rem] h-[5rem] mt-1 absolute" src="./com/photos/title.png" alt="Google Television BETA">
         </a>
@@ -47,7 +47,7 @@
             <div>
                 <div class="flex flex-row ml-6">
                     <label for="searchbox"></label>
-                    <input type="text" id="searchbox" onkeydown="enterDown(event)" class="block w-[40rem] rounded-md border-0 py-1.5 pl-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black" placeholder="Search for Program">
+                    <input type="text" id="searchbox" onkeydown="enterDown(event)" class="block lg:w-[40rem] sm:w-24 md:w-32 rounded-md border-0 py-1.5 pl-7 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black" placeholder="Search for Program">
                     <button class="ml-2" id="searchnow" onclick="search()">
                         <p class="bg-gray-100 outline outline-1 outline-gray-300 px-2 pt-1 pb-1">Search</p>
                     </button>
@@ -56,8 +56,8 @@
                     </button>
                 </div>
             </div>
-            <div id="changelogPlace" class="-ml-[6rem] flex flex-auto gap-0 scale-75 max-w-[70rem] max-h-[13rem] overflow-scroll overflow-y-hidden">
-                <div class="pr-8">
+            <div id="changelogPlace" class="lg:-ml-[6rem] md:-ml-[6rem] sm:-ml-[6rem] sm:max-w-[20rem] md:max-w-[40rem] lg:max-w-[70rem] flex flex-auto gap-0 scale-75 max-h-[13rem] overflow-scroll overflow-y-hidden">
+                <!-- <div class="pr-8">
                     
                 </div>
                 <div class="pr-8">
@@ -68,7 +68,7 @@
                 </div>
                 <div class="pr-8">
                     
-                </div>
+                </div> -->
             </div>
         </div>
     </header>
@@ -188,7 +188,7 @@
     </div>
     
     <!--main content (my guy really spent a whole day fucking the grid :kekw:...)-->
-    <div id="theMainContent" class="grid relative mt-5 ml-10 pl-[4rem]" >
+    <div id="theMainContent" class="grid sm:pl-1 md:pl-5 lg:pl-10 relative mt-5 ml-10 gap-1 2xl:pl-[4rem]" >
         <div>
             <div class="outline outline-1 outline-gray-300 max-w-[5rem] max-h-[150px]"> <!--first picker-->
                 <button class="active:bg-blue-200" onclick="loadYoutube()">
