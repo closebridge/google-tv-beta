@@ -3,8 +3,30 @@ const loginBanner = document.getElementById('loginRequired')
 document.onload = checkIfLogon;
 
 
+// function correction() {                  USELESS!, ABSOLUTELY USELESS!
+//     if (localStorage.loginStatus === 'true' && sessionStorage.loginStatus === 'false') {
+//         console.log('All good, no conflict');
+//     } else if (sessionStorage.loginStatus === 'true' && localStorage.loginStatus === 'false') {
+//         console.log('All good, no conflict');
+//     } else {
+//         // Handle cases where conditions are not met
+//         if (sessionStorage.loginStatus == null) {
+//             sessionStorage.setItem('loginStatus', 'false');
+//             sessionStorage.setItem('username', '');
+//             sessionStorage.setItem('password', '');
+//         }
+//         if (localStorage.loginStatus == null) {
+//             localStorage.setItem('loginStatus', 'false');
+//             localStorage.setItem('username', '');
+//             localStorage.setItem('password', '');
+//         }
+//     }
+// }
+
+
 
 function checkIfLogon() {
+    // correction();
     if (localStorage.loginStatus == false || sessionStorage.loginStatus == false || localStorage.loginStatus == null || sessionStorage.loginStatus == null ) {
         window.location.href = "./login.html";
     };
@@ -13,6 +35,7 @@ function checkIfLogon() {
 function callLoginPopup() {
     const userManager = document.getElementById('userIDStats');
     const theName = document.getElementById('userToken');
+    
     
     if (localStorage.loginStatus == 'true') {
         if (sessionStorage.loginStatus == 'false') {
@@ -36,6 +59,8 @@ function callLoginPopup() {
         userManager.classList.toggle('invisible');
         theName.innerText = 'You ruined it!';
     }
+
+    
 }
 
 function toggleLoginPopup() {
@@ -69,11 +94,13 @@ function validateLogin() {
         if (rememberLogin.checked) {
             document.location.href = './index.html'
             localStorage.setItem('loginStatus', 'true')
+            sessionStorage.setItem('loginStatus', 'false')
             localStorage.setItem('username', usernameInput)
             localStorage.setItem('password', passwordInput)
         } else {
             document.location.href = './index.html'
             sessionStorage.setItem('loginStatus', 'true')
+            localStorage.setItem('loginStatus', 'false')
             sessionStorage.setItem('username', usernameInput)
             sessionStorage.setItem('password', passwordInput)
         };
