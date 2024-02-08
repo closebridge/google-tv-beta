@@ -3,30 +3,8 @@ const loginBanner = document.getElementById('loginRequired')
 document.onload = checkIfLogon;
 
 
-// function correction() {                  USELESS!, ABSOLUTELY USELESS!
-//     if (localStorage.loginStatus === 'true' && sessionStorage.loginStatus === 'false') {
-//         console.log('All good, no conflict');
-//     } else if (sessionStorage.loginStatus === 'true' && localStorage.loginStatus === 'false') {
-//         console.log('All good, no conflict');
-//     } else {
-//         // Handle cases where conditions are not met
-//         if (sessionStorage.loginStatus == null) {
-//             sessionStorage.setItem('loginStatus', 'false');
-//             sessionStorage.setItem('username', '');
-//             sessionStorage.setItem('password', '');
-//         }
-//         if (localStorage.loginStatus == null) {
-//             localStorage.setItem('loginStatus', 'false');
-//             localStorage.setItem('username', '');
-//             localStorage.setItem('password', '');
-//         }
-//     }
-// }
-
-
 
 function checkIfLogon() {
-    // correction();
     if (localStorage.loginStatus == false || sessionStorage.loginStatus == false || localStorage.loginStatus == null || sessionStorage.loginStatus == null ) {
         window.location.href = "./login.html";
     };

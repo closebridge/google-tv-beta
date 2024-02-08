@@ -6,16 +6,10 @@ const maxResults = '35';
 var historyVideo = []
 var watchedVideo = JSON.parse(localStorage.getItem("watchedVideo")) || historyVideo
 
-// Chill pill for the girls (and boys)
+// Chill pill for the girls (and boys) (Cooldown)
 let lastSearchTime = 0;
 const cooldownTime = 3000;
 const currentTime = Date.now();
-
-
-
-//WORK IN PROGRESS -- NAVBAR
-//WORK IN PROGRESS -- NAVBAR
-
 
 
 function debugOnly() {
@@ -102,8 +96,8 @@ function displaySearchResults(results) {
 
 function enterDown(event) {
     if (event.key === 'Enter') {
-            event.preventDefault();
-            search();
+        event.preventDefault();
+        search();
     }
 }
 
@@ -286,12 +280,14 @@ const joyrydeId = 'UCLddKRSsA2eNfwnNVz6Onrg';
     //habstrakt is not here (no channel, just reuploads)
 const nicklengId = 'UCoouBWARCpal3ctBF87Pqsg';
 const antohaMCId = 'UC8azRZKZlDI5KVX2Un6HFmQ';
+const knock2Id = 'UCdb3pfoDoMOl-oMS1Ldsmiw';
 
 const theStillWoozy = './com/photos/StillWoozy.png';
 const theHabstrakt = './com/photos/habstrakt.png';
 const theJOYRYDE = './com/photos/JOYRYDE.png';
 const theNickLeng = './com/photos/nickleng.png';
 const theAntohaMC = './com/photos/antohamc.png';
+const theKnock2 = './com/photos/knock2down.png'
 
     
 function stillWoozy() {
@@ -322,6 +318,35 @@ function stillWoozy() {
         displaySearchResults(data.items);
     })
     .catch(error => console.error('Error fetching data:', error));    
+}
+
+function knock2() {
+    const mainui = {
+        searchResultsList: document.getElementById('searchResultsList'),
+        videoplayback: document.getElementById('videoplayback'),
+        thumbnailhere: document.getElementById('thumbnailhere'),
+        searchtext: document.getElementById('searchtext'),
+        theElement: document.createElement('img'),
+    }   
+
+    mainui.theElement.src = theKnock2;
+    mainui.searchResultsList.innerHTML='';
+    //mainui.videoplayback.innerHTML='';
+    mainui.thumbnailhere.innerHTML='';
+    mainui.thumbnailhere.appendChild(mainui.theElement);
+    mainui.searchtext.textContent= 'Knock2';
+    mainui.searchtext.classList= '-mt-1'
+
+    const cacheKey = `search_${knock2Id}`;
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&channelId=${knock2Id}`)
+    .then(response => response.json())
+    .then(data => {
+        // Cache
+        cache[cacheKey] = data.items;
+        displaySearchResults(data.items);
+    })
+    .catch(error => console.error('Error fetching data:', error));   
 }
 
 function joyryde() {
@@ -567,7 +592,7 @@ function loopBack() {
 function tokenToggle() {
     const tokenSelector = document.getElementById('tokenSelector');
     tokenSelector.classList.toggle('invisible')
-}
+};
 
 function tokenConfirmation() {
 
@@ -583,5 +608,7 @@ function tokenConfirmation() {
     } else {
         apikey = prodToken;
         tokenToggle();
-    }
-}
+    };
+};
+
+
