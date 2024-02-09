@@ -395,7 +395,8 @@ function habstrakt() {
     mainui.searchtext.textContent= 'Habstrakt';
     mainui.searchtext.classList= 'mt-2'
 
-
+    
+    const cacheKey = `search_${habstrakt}`;
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${apikey}&part=snippet&type=video&maxResults=${maxResults}&q='habstrakt'`)
     .then(response => response.json())
     .then(data => {
