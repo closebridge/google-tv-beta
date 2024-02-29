@@ -77,8 +77,16 @@
         <div class="flex flex-auto  justify-between text-blue-600">
             <div class="pl-5 flex gap-x-10 sm:gap-x-3 md:gap-x-7">
                 <button id="navbar0" class="font-bold text-black">Front page</button>
-                <button onclick="mostPopular()" id="navbar1">Most Popular</button>
-                <button onclick="historyVideo()" id="navbar2">Last Viewed</button>
+                <div class="flex flex-auto">
+                    <button id="navbar1">Edit Front page </button>
+                    <p class="text-xs text-red-500"> (coming soon)</p>
+                </div>
+                
+                <div class="flex flex-auto">
+                    <button onclick="fetchFromStorage()" id="navbar2">Last Viewed </button>
+                    <p class="text-xs"> (new)</p>
+                </div>
+                
             </div>
             <div class="text-right flex">
                 <button class="pr-6">RSS</button>
@@ -225,7 +233,7 @@
                 </button>
             </div>
         </div>
-        <div  class="w-[14rem] absolute left-[160px] h-12 max-w-xl"> <!--video's thumbnail-->
+        <div  class="w-[12rem] absolute left-[160px] h-12 max-w-xl"> <!--video's thumbnail-->
             <div id="thumbnailhere">
                 <img src="./com/photos/frontpage.png" alt="thumbnail">
             </div>
