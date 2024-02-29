@@ -15,7 +15,6 @@ if (!localStorage.getItem('watchedVideo')) {
 
 let oldCountedURL = 0
 function fetchFromStorage() {
-    const forFetchAPI = 'AIzaSyAQ_gdEkaQK1XZQK37_fCQbAp4DmUvthWM' //Remember to remove when push to prod!
     const searchDisplay = document.getElementById('searchResultsList')
     document.getElementById('searchtext').textContent = 'Last Viewed'
     
@@ -37,7 +36,7 @@ function fetchFromStorage() {
     }
 
     if (countedURL > 0 || localStorage.getItem('watchedVideo') !== '') {
-        fetch(`https://www.googleapis.com/youtube/v3/videos?key=${forFetchAPI}&part=snippet&id=${joinedURL}&maxResults=${countedURL}`)
+        fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apikey}&part=snippet&id=${joinedURL}&maxResults=${countedURL}`)
         .then(response => response.json())
         .then(data => { // Display it
             // var oldURL = JSON.parse(localStorage.getItem("watchedVideo"))
