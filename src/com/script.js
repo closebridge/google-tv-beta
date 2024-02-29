@@ -4,9 +4,9 @@ const cache = {};
 const maxResults = '35';
 // Anyways welcome to boilerplate hell
 var historyVideo = []
-var watchedVideo = JSON.parse(localStorage.getItem("watchedVideo")) || historyVideo
+var watchedVideo = [] 
 
-// Chill pill for the girls (and boys) (Cooldown)
+// Cooldown
 let lastSearchTime = 0;
 const cooldownTime = 3000;
 const currentTime = Date.now();
@@ -34,7 +34,7 @@ const cooldownDuration = 2000;
 
 
 function search() {
-  const currentTime = Date.now();
+  let currentTime = Date.now();
 
   // Check if the cooldown period has elapsed
   if (currentTime - lastExecutionTime <= cooldownDuration) {
@@ -138,10 +138,11 @@ function playVideo(videoId) {
     iframe.src = `https://www.youtube.com/embed/${videoId}`;
     iframe.allowFullscreen = true;
     videoplaybackDiv.appendChild(iframe);
+
     var newVideoId = videoId;
     watchedVideo.push(newVideoId);
     localStorage.setItem("watchedVideo", JSON.stringify(watchedVideo));
-
+    
     //Thumbnail
     const thumbnailImg = document.createElement('img');
     thumbnailImg.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
@@ -475,9 +476,6 @@ function loginPopupListener() {
 }
 
 
-
-//Pop up caller
-
 // Advance search
 function advanceSearchWindow() { 
     const popup = document.getElementById('advanceSearch');
@@ -500,8 +498,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         //console.log('Ayo mobile user');
         smallscreenPopUp();
-    } else {
-        //console.log('You are good bro!');
     }
 });
 
