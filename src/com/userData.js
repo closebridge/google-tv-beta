@@ -7,37 +7,41 @@
 const playbackScreen = document.getElementById('videoplayback')
 const ThumbnailImage = document.getElementById('thumbnailhere')
 const searchResultsList = document.getElementById('searchResultsList')
-var oldURL = JSON.parse(localStorage.getItem("watchedVideo"))
+
 
 if (!localStorage.getItem('watchedVideo')) {
     localStorage.setItem('watchedVideo', null);
 };
 
-let oldCountedURL = 0
+var oldCountedURL = 0
 function fetchFromStorage() {
-    const forFetchAPI = 'AIzaSyAQ_gdEkaQK1XZQK37_fCQbAp4DmUvthWM' //Remember to remove when push to prod!
+    var oldURL = JSON.parse(localStorage.getItem("watchedVideo"))
     const searchDisplay = document.getElementById('searchResultsList')
     document.getElementById('searchtext').textContent = 'Last Viewed'
     
     const resultTitle = document.getElementById('list1')
     var countedURL = 0
 
-    countedURL = JSON.parse(localStorage.getItem('watchedVideo')).length
-    if (countedURL !== 0) {
-        joinedURL = oldURL.join(',')
+    try {
+        countedURL = JSON.parse(localStorage.getItem('watchedVideo')).length
+        if (countedURL !== 0) {
+            joinedURL = oldURL.join(',')
+        }
+    } catch (error) {
+        alert("Nothing within Recently Watched")
+        return
     }
     
+
     
-    if (countedURL == oldCountedURL) { // Check if they were NOT the same
-        // console.log(countedURL, oldCountedURL)
+    if (countedURL == oldCountedURL) { // Memorization
         return
     } else {
-        // console.log('ddddd ', countedURL, oldCountedURL)
         searchDisplay.innerHTML = ''
     }
 
     if (countedURL > 0 || localStorage.getItem('watchedVideo') !== '') {
-        fetch(`https://www.googleapis.com/youtube/v3/videos?key=${forFetchAPI}&part=snippet&id=${joinedURL}&maxResults=${countedURL}`)
+        fetch(`https://www.googleapis.com/youtube/v3/videos?key=${apikey}&part=snippet&id=${joinedURL}&maxResults=${countedURL}`)
         .then(response => response.json())
         .then(data => { // Display it
             // var oldURL = JSON.parse(localStorage.getItem("watchedVideo"))
@@ -59,8 +63,8 @@ function fetchFromStorage() {
             console.error("Unable to fetch() ", error)
         })
             
-    } else {console.log("woopie oopsii mwe forgor to wawch anythigg > ~ <")};
-
+    } // else {console.log("woopie oopsii mwe forgor to wawch anythigg > ~ <") (Stupid fucks, wont use it)};
+    // console.log('counter=', countedURL, 'oldcounter=', oldCountedURL)
 };
 
 function historyVideo() {

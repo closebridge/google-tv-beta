@@ -4,7 +4,9 @@ const cache = {};
 const maxResults = '35';
 // Anyways welcome to boilerplate hell
 var historyVideo = []
-var watchedVideo = [] 
+if (!Array.isArray(localStorage.getItem('watchedVideo'))) {
+    var watchedVideo = []
+}
 
 // Cooldown
 let lastSearchTime = 0;
