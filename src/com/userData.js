@@ -48,12 +48,12 @@ function fetchFromStorage() {
             data.items.forEach((item) => {
 
                 historyTitle = item.snippet.title;
-                historyId = item.id;
+                let historyId = item.id;
                 const listItem = document.createElement('li');
                 const buttonForItem = document.createElement('button');
                 buttonForItem.textContent = historyTitle;
                 buttonForItem.className = 'bg-gray-200 text-start text-sm hover:bg-gray-300 active:bg-gray-400 w-auto';
-                buttonForItem.addEventListener('click', () => playVideo(historyId))
+                buttonForItem.addEventListener('click', () => playVideo(historyId, true));
                 listItem.appendChild(buttonForItem);
                 searchDisplay.appendChild(listItem);
                 oldCountedURL = countedURL

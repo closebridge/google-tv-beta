@@ -8,6 +8,7 @@ if (!Array.isArray(localStorage.getItem('watchedVideo'))) {
     var watchedVideo = []
 }
 
+
 // Cooldown
 let lastSearchTime = 0;
 const cooldownTime = 3000;
@@ -103,7 +104,7 @@ function enterDown(event) {
     }
 }
 
-
+var ignoreHistoryPush = false;
 function displaySearchResults(results) {
     const searchResultsList = document.getElementById('searchResultsList');
 
@@ -118,7 +119,7 @@ function displaySearchResults(results) {
             const titleButton = document.createElement('button');
             titleButton.textContent = videoTitle;
             titleButton.className = 'bg-gray-200 text-start text-sm hover:bg-gray-300 active:bg-gray-400 w-auto';
-            titleButton.addEventListener('click', () => playVideo(videoId));
+            titleButton.addEventListener('click', () => playVideo(videoId, false));
             listItem.appendChild(titleButton);
             searchResultsList.appendChild(listItem);
         });
@@ -129,7 +130,7 @@ function displaySearchResults(results) {
 }
 
 
-function playVideo(videoId) {
+function playVideo(videoId, ignoreHistoryPush) {
     const videoplaybackDiv = document.getElementById('videoplayback');
     videoplaybackDiv.innerHTML = '';
 
@@ -141,9 +142,12 @@ function playVideo(videoId) {
     iframe.allowFullscreen = true;
     videoplaybackDiv.appendChild(iframe);
 
-    var newVideoId = videoId;
-    watchedVideo.push(newVideoId);
-    localStorage.setItem("watchedVideo", JSON.stringify(watchedVideo));
+    if (!ignoreHistoryPush) {
+        var newVideoId = videoId; // Push and add new URL
+        watchedVideo.push(newVideoId);
+        localStorage.setItem("watchedVideo", JSON.stringify(watchedVideo));
+    }
+    console.log(ignoreHistoryPush)
     
     //Thumbnail
     const thumbnailImg = document.createElement('img');
